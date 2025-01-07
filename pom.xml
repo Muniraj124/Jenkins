@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Group ID, Artifact ID, Version for your JAR -->
     <groupId>com.example</groupId>
-    <artifactId>hello-world-jar</artifactId>
+    <artifactId>hello-world1-jar</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
-    <!-- Change packaging from WAR to JAR -->
+
+    <!-- Packaging type JAR -->
     <packaging>jar</packaging>
 
     <dependencies>
-        <!-- Example dependencies (add as needed) -->
-        <!-- If you're using any other libraries, they go here -->
+        <!-- Add any dependencies here as needed -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Maven JAR Plugin to package a JAR file -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -28,10 +26,19 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>jar</goal> <!-- Package as JAR -->
+                            <goal>jar</goal> <!-- Ensure the JAR is generated -->
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <!-- Add a classifier to avoid conflicts with existing artifacts -->
+                    <classifier>jar</classifier> <!-- You can use any unique name for the classifier -->
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>com.example.HelloWorld</Main-Class> <!-- Specify main class -->
+                        </manifestEntries>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>

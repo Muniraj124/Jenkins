@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- Group ID, Artifact ID, Version for your JAR -->
     <groupId>com.example</groupId>
-    <artifactId>hello-world-war</artifactId>
+    <artifactId>hello-world-jar</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    
+    <!-- Change packaging from WAR to JAR -->
+    <packaging>jar</packaging>
 
     <dependencies>
-        <!-- Servlet API -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
+        <!-- Example dependencies (add as needed) -->
+        <!-- If you're using any other libraries, they go here -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Maven WAR Plugin -->
+            <!-- Maven JAR Plugin to package a JAR file -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.1</version>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal> <!-- Package as JAR -->
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

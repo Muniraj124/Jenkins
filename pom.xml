@@ -5,40 +5,28 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Group ID, Artifact ID, Version for your JAR -->
     <groupId>com.example</groupId>
-    <artifactId>hello-world1-jar</artifactId>
+    <artifactId>hello-world-war</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <!-- Packaging type JAR -->
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <dependencies>
-        <!-- Add any dependencies here as needed -->
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Maven WAR Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>jar</goal> <!-- Ensure the JAR is generated -->
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- Add a classifier to avoid conflicts with existing artifacts -->
-                    <classifier>jar</classifier> <!-- You can use any unique name for the classifier -->
-                    <archive>
-                        <manifestEntries>
-                            <Main-Class>com.example.HelloWorld</Main-Class> <!-- Specify main class -->
-                        </manifestEntries>
-                    </archive>
-                </configuration>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
             </plugin>
         </plugins>
     </build>
